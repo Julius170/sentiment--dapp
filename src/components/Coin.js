@@ -72,26 +72,16 @@ function Coin({perc, setPerc, token, setModalToken, setVisible}) {
 
   return (
     <>
-    
     <div>
-
       <div className="token">
-
       {token}
-
       </div>
-
       <div className="circle" style={{boxShadow: `0 0 20px ${colour}`}}>
-
           <div className="wave"
-          
           style={{    
-
             marginTop: `${100-perc}%`,
             boxShadow: `0 0 20px ${colour}`,
             backgroundColor: colour,
-
-
           }}
           
           ></div>
@@ -101,7 +91,6 @@ function Coin({perc, setPerc, token, setModalToken, setVisible}) {
       <div className="votes">
 
            <Button 
-           
            onClick={() => {
             if(isAuthenticated){
               vote(true)
@@ -112,9 +101,7 @@ function Coin({perc, setPerc, token, setModalToken, setVisible}) {
            text="Up"
            theme="primary"
            type="button"
-           
            />
-
           <Button 
            color="red"
            onClick={() => {

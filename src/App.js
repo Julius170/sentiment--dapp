@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
 import { ConnectButton, Modal } from "web3uikit";
-import logo from "./images/Moralis.png";
+import logo from "./images/sentiment.png";
 import Coin from "./components/Coin";
 import {abouts} from "./about";
 import { useMoralisWeb3Api, useMoralis } from "react-moralis";
@@ -63,7 +63,7 @@ const App = () => {
 
     }
 
-  }, [isInitialized]);
+  }, [Moralis.Query, getRatio, isInitialized]);
 
   useEffect(() => {
 
@@ -80,7 +80,7 @@ const App = () => {
       fetchTokenPrice()
     }
 
-  }, [modalToken]);
+  }, [Web3Api.token, modalToken]);
 
   return (
     <>

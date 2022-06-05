@@ -24,7 +24,7 @@ contract MarketSentiment {
 
     mapping (string => ticker) private Tickers;
 
-    event tickerUpdates (
+    event tickerUpdated (
         uint256 upVotes,
         uint256 downVotes,
         address voter,
@@ -47,7 +47,7 @@ contract MarketSentiment {
         // to check if voted ticker exists
         require(Tickers[_ticker].exists == true, "Ticker does not exist.");
         // to check if voter has not previously voted
-        require(!Tickers[_ticker].Voters[msg.sender], "You have already voted");
+        require(!Tickers[_ticker].Voters[msg.sender], "You have already voted for this coin.");
 
         // create temporary ticker struct
         ticker storage t = Tickers[_ticker];
@@ -62,9 +62,9 @@ contract MarketSentiment {
             t.downVotes++;
         }
 
-        // call tickerUpdates event
+        // call tickerUpdated event
 
-        emit tickerUpdates(t.upVotes, t.downVotes, msg.sender, _ticker);   
+        emit tickerUpdated(t.upVotes, t.downVotes, msg.sender, _ticker);   
     }
 
     function getVotes(string memory _ticker) public view returns 
